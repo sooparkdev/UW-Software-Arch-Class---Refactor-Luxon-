@@ -6,5 +6,4 @@
 <p>Luxon is a JavaScript library where it allows software developers to work with dates and times when writing JavaScript code.</p>
 
 <p><strong> 2) Who created the software, and who currently "maintains" it? (Was it developed by a large company or an independent developer? Who seems to be in charge of approving changes to its code/architecture?) </strong></p>
-
-<p>Luxon is maintained and collaborated on by a community of 170 contributors with it being an open source software.</p>
+<p>Luxon was created by an independent developer, Isaac Cambron (icambron on GitHub), after working on a different date and time-related Javascript library and identifying potential areas of improvement. Luxon is maintained and collaborated on by a community of 170 contributors with it being an open source software.</p>
