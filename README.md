@@ -16,7 +16,6 @@
 <p><em> Figure 1: System Diagram </em></p>
 
 ![UML System Component Diagram](./images/Luxondiagram.png)*The diagram shows the system components of Luxon Package library which consists of interfaces and its children*
-<br>Figure 1: System Component Diagram Diagram</br>
 
 
 ### 3 | Applied Perspective
