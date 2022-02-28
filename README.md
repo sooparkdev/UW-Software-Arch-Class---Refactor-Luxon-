@@ -1,6 +1,6 @@
 # INFO 443 Project 2 Luxon Software 
 
-### 1| Introduction 
+### 1 | Introduction 
 <p><strong> 1.1 What is the software system, and what does it do? </strong></p>
 <p>Luxon is a JavaScript library where it allows software developers to work with dates and times when writing JavaScript code.</p>
 
