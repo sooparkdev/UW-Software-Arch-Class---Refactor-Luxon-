@@ -15,7 +15,30 @@
 ### 2 | Development View
 <p><em> Figure 1: System Diagram </em></p>
 
-![UML System Component Diagram](./images/Luxondiagram.png)*The diagram shows the system components of Luxon Package library which consists of interfaces and its children*
+The Luxon package is composed of several components with different purposes, as indicated below in the table. 
+
+| Component Name      | Purpose     |
+|:--------------------|:--------------|
+| DateTime          | Data structure representing a specific date and time, contains classes and instance methods for creating and transforming them.      | 
+| Duration          | This object represents a period of time. Conceptually, it’s a map of units to their quantities.  | 
+| Interval          | This object represents a half-open interval of time, where each endpoint is a DateTime.       |
+| Info          | This class contains static methods for retrieving general time and date related data.           | 
+| Zone          | This class represents the time zone that the user is working with.          | 
+| FixedOffsetZone  | This class represents a zone with a fixed offset (meaning no DST) | 
+| IANAZone         | This class represents a zone identified by an IANA identifier, like America/New_York    | 
+| InvalidZone      | This class represents a  zone that failed to parse. Users should never need to instantiate this. | 
+| SystemZone      | This class represents the local zone for this JavaScript environment. |
+| Settings         | Settings contain static getters and setters that control Luxon's overall behavior.          | 
+| LuxonError       | This class represents different error messages to throw exceptions.  | 
+
+<p> In terms of dependencies between the components, The FixedOffsetZone, IANAZone, InvalidZone, and SystemZone all depend on the Zone class since these classes extend from the Zone class. Moreover, since the Interval class used the interface of DateTime and/or Duration  to create an Interval object, which can be made up of a start DateTime and an end DateTime or a start DateTime and a specific Duration, thus, the Interval class is dependent on the DateTime and the Duration class. In terms of dependencies on outside systems and libraries,, class LuxonError is dependent on class Error of Javascript, since it extends from class Error to create custom error classes. The diagram below shows the relationships between the components of Luxon more clearly: </p>
+
+![UML System Component Diagram](./images/Luxondiagram.png)*The diagram shows the main system components of Luxon Package library*
+
+
+<p> In terms of the high-level codeline mode, the source code structure of luxon includes 10  files, with 8 representing main components: DateTime defined in datetime.js, Duration  defined in duration.js,  Interval defined in interval.js, LuxonError defined in errors.js, Info defined in info.js, Interval defined in interval.js, Setting defined in settings.js, Zone defined in zone.js,  whereas FixedOffsetZone, IANAZone, InvalidZone, and SystemZone are all defined in a separate Zones folder. In addition to this, within the source code structure, there’s a separate folder called impl just for formatting and parsing time tokens.  Overall, the luxon.js file contains all 8 main interface component javascript files in order to be deployed in package. json</p>
+
+<p> In terms of testing and configuration of Luxon, Luxon doesn't have any automated testing integrated into the code. It has a separate testing folder called test that would allow developers to use jest testing to test and view a full coverage report. The developers can run jest on their command line and test all the 5 main interface components globally  including Datetime, duration, info, interval, zone, along with the time formatting folder impl. Each interface  folder has different javascript files to test separate functions of that interface: creating, formatting, transforming, etc. When using this system, users need to include Luxon in a script tag; they can access its various classes through the luxon global. For system building, developers need to run babel node  in order to convert javascript code into compatible versions in current and older browsers or environments.</p>
 
 
 ### 3 | Applied Perspective
@@ -45,3 +68,18 @@ Luxon Package doesn’t follow any specific architectural style since it’s a J
   <li> Luxon adheres to the <strong> Dependency Inversion Principle </strong> as well where the system itself depends on abstractions rather than concrete classes. When it comes to setting different types of zone, the system replies on calling the Zone interface where it includes four different types of Zone modules (which they are FixedOffsetZone, IANAZone, InvalidZone, and SystemZone). In this case, the Zone interface serves as an abstraction where it does not depend on class implementation details, since it does not require any imports from low-level modules. This allows for easier re-use of the Zone functionality in the system for the users. 
 </li>
 </ul>  
+
+### 6 | System Improvement
+<p><strong>Refactoring code</strong></p>
+
+<p>The first code refactoring I made is for 2 methods in Interval.js called “before" and “after" using Parameterize method. I recognized that some code of these 2 methods are duplicated due to having the same  internal values but different actions , I intend to introduce a new boolean parameter called "extendForward" that will check whether the users want to create a new interval by adding or subtracting a duration from a datetime object. This helps improve the system in the way that if the Luxon creators want to add another version of this functionality, they could simply run this method with a different parameter instead of creating another method. </p>
+
+<p><strong>Feature Improvement</strong></p>
+
+<p>One feature improvement for Luxon is to make Duration.toHuman() method print more human-readable strings. Currently, there are 2 issues with this toHuman method. Firstly, if a Duration is created with some units being 0 then those units are still printed using the toHuman method, which doesn't benefit humans. Secondly, if a Duration is created with an empty object then an empty string is returned with the toHuman method, which is not human-readable. As a solution, I think toHuman should be either renamed as it only returns the representation of the duration with unit names attached and not really human-friendly output or the above issues can be improved. To fix this issue, an additional parameter can be introduced to specify the smallest unit to print, which is seconds instead of milliseconds. This parameter “seconds” will also serve as a unit to print if the duration contains an empty unit. </p>
+
+
+
+
+
+
