@@ -46,19 +46,19 @@ The Luxon package is composed of several components with different purposes, as 
 <p>For the luxon library, it is important to consider the performance and scalability perspective. It is no surprise that luxon is one of the best JavaScript libraries for time management where hundreds of thousands of users use it on a daily basis. With the high usability and frequency, we should always acknowledge the fact that the workload of the system could get increased periodically due to an increase in the number of requests, transactions, and the work the system is required to process per unit of time. In such case, we would need to be able to predict the performance of the system as accurate as possible in a timely manner. There are a few performance and scalability concerns that are relevant to the system, which include the response time, throughput, and the ability to achieve long-term scabiliby. In terms of the response time concern, we need to figure out the responsiveness of the system in which how quickly it takes to respond to routine workloads, such as user requests on a daily update on dates and times. We also need to take into account the turnaround time of the system in which how quickly it takes to complete larger tasks requested by the users. When it comes to the throughput concern, we need to acknowledge the amount of workload the system is capable of handling in a unit time period. We want to avoid the situation of the throughput is being too high to the point where it takes the same amount of time to respond to tasks. Lastly, we want to understand the ability of the system to manage long-term scalability. It is important for the system to be able to quickly respond to tasks as the workload increases gradually in both the short and long terms. 
 </p>
 
+
+Activity 1: Capture Performance and Scalability Requirements 
+
 | Component Name      | Benchmarks Needed to Be Reached |
 |:--------------------|:--------------|
-| DateTime          |  •	Response Time: >1200 ms per 50 transactions •	Throughput: 100 transactions per second •	Scalability: 35% increase within 1 minute   | 
-| Duration          | This object represents a period of time. Conceptually, it’s a map of units to their quantities.  | 
-| Interval          | This object represents a half-open interval of time, where each endpoint is a DateTime.       |
-| Info          | This class contains static methods for retrieving general time and date related data.           | 
-| Zone          | This class represents the time zone that the user is working with.          | 
-| FixedOffsetZone  | This class represents a zone with a fixed offset (meaning no DST) | 
-| IANAZone         | This class represents a zone identified by an IANA identifier, like America/New_York    | 
-| InvalidZone      | This class represents a  zone that failed to parse. Users should never need to instantiate this. | 
-| SystemZone      | This class represents the local zone for this JavaScript environment. |
-| Settings         | Settings contain static getters and setters that control Luxon's overall behavior.          | 
-| LuxonError       | This class represents different error messages to throw exceptions.  | 
+| DateTime | Response Time: >1200 ms per 50 transactions; Throughput: 100 transactions per second; Scalability: 35% increase within 1 minute   | 
+| Duration | Response Time: >1000 ms per 20 transactions; Throughput: 80 transactions per second; Scalability: 30% increase within 1 minute  | 
+| Interval | Response Time: >800 ms per 20 transactions; Throughput: 80 transactions per second; Scalability: 30% increase within 1 minute |
+| Info     | Response Time: >100 ms per 30 concurrent transactions; Throughput: 200 transactions per second; Scalability: 30% increase within 1 minute | 
+| Zone     | Response Time: >600 ms per 30 concurrent transactions; Throughput: 100 transactions per second; Scalability: 20% increase within 1 minute | 
+
+Activity 2: 
+![Performance Model](./images/PerformanceModel.png)*The diagram shows how performance flows through the major components of the system*
 
 
 ### 4 | Styles & Patterns
