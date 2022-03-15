@@ -46,9 +46,22 @@ The Luxon package is composed of several components with different purposes, as 
 <p>For the luxon library, it is important to consider the performance and scalability perspective. It is no surprise that luxon is one of the best JavaScript libraries for time management where hundreds of thousands of users use it on a daily basis. With the high usability and frequency, we should always acknowledge the fact that the workload of the system could get increased periodically due to an increase in the number of requests, transactions, and the work the system is required to process per unit of time. In such case, we would need to be able to predict the performance of the system as accurate as possible in a timely manner. There are a few performance and scalability concerns that are relevant to the system, which include the response time, throughput, and the ability to achieve long-term scabiliby. In terms of the response time concern, we need to figure out the responsiveness of the system in which how quickly it takes to respond to routine workloads, such as user requests on a daily update on dates and times. We also need to take into account the turnaround time of the system in which how quickly it takes to complete larger tasks requested by the users. When it comes to the throughput concern, we need to acknowledge the amount of workload the system is capable of handling in a unit time period. We want to avoid the situation of the throughput is being too high to the point where it takes the same amount of time to respond to tasks. Lastly, we want to understand the ability of the system to manage long-term scalability. It is important for the system to be able to quickly respond to tasks as the workload increases gradually in both the short and long terms. 
 </p>
 
-<p><strong>Usability Perspective </strong></p>
-<p>For the luxon library, usability perspective is crucial to take into consideration in which it ensures to deliver an effective user experience and a high level of success for the system. Particularly, we want to understand how effectively the system functions when any users such as support personnel interact with it directly or indirectly. There are a few usability concerns that are relevant to the system, which include the usability of the user interface, process flow, and information quality. We want to make sure that the system guarantees to deliver the same features and functionalities to any types of users at a high quality. Meanwhile, the system should follow a simple, easily understandable, and consistent process flow at all times. This helps to ensure that the tasks being performed in the system correctly and efficiently. Furthermore, we want to look into the system to verify that the data is maintained accurately, relevantly, consistently, and reliable. This allows us to only process and store valid data into the system and increase the successful usage of the system. 
-</p>
+| Component Name      | Benchmarks Needed to Be Reached |
+|:--------------------|:--------------|
+| DateTime          |  •	Response Time: >1200 ms per 50 transactions
+•	Throughput: 100 transactions per second 
+•	Scalability: 35% increase within 1 minute   | 
+| Duration          | This object represents a period of time. Conceptually, it’s a map of units to their quantities.  | 
+| Interval          | This object represents a half-open interval of time, where each endpoint is a DateTime.       |
+| Info          | This class contains static methods for retrieving general time and date related data.           | 
+| Zone          | This class represents the time zone that the user is working with.          | 
+| FixedOffsetZone  | This class represents a zone with a fixed offset (meaning no DST) | 
+| IANAZone         | This class represents a zone identified by an IANA identifier, like America/New_York    | 
+| InvalidZone      | This class represents a  zone that failed to parse. Users should never need to instantiate this. | 
+| SystemZone      | This class represents the local zone for this JavaScript environment. |
+| Settings         | Settings contain static getters and setters that control Luxon's overall behavior.          | 
+| LuxonError       | This class represents different error messages to throw exceptions.  | 
+
 
 ### 4 | Styles & Patterns
 <p><strong>Architectural Style</strong></p>
