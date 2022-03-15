@@ -59,6 +59,8 @@ The Luxon package is composed of several components with different purposes, as 
 | Zone     | Response Time: >600 ms per 30 transactions; Throughput: 100 transactions per second; Scalability: 20% increase within 1 minute | 
 
 <p><strong>Activity 2: Create the Performance Model</strong></p>
+
+
 ![Performance Model](./images/PerformanceModel.png)*The diagram shows how performance flows through the major components of the system*
 
 
