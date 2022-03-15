@@ -78,9 +78,13 @@ Luxon Package doesn’t follow any specific architectural style since it’s a J
 
 <p>The first code refactoring I made is for 2 methods in Interval.js called “before" and “after" using Parameterize method. I recognized that some code of these 2 methods are duplicated due to having the same  internal values but different actions , I intend to introduce a new boolean parameter called "extendForward" that will check whether the users want to create a new interval by adding or subtracting a duration from a datetime object. This helps improve the system in the way that if the Luxon creators want to add another version of this functionality, they could simply run this method with a different parameter instead of creating another method. The changes of this method can be viewed at this system repo: https://github.com/wanyuguan/luxon </p>
 
+<p> As aforementioned when evaluating the principles of Luxon, Luxon violates the Law of Demeter with modules functions encapsulated in another module’s classes. To recapture a specific example mentioned earlier, the ‘adjustTime’ function inside the Datetime module calls ‘fromObject’ function under the Duration module. Luxon have a lot of elements fairly coupled like this. The more the coupling between the components in an application, the harder it becomes to modify, test, and maintain it over time. We can make the adjustTime function adhere to the principle by passing the Duration object as a parameter. The changes of this method can be viewed at this system repo: https://github.com/wanyuguan/luxon </p>
+
 <p><strong>Feature Improvement</strong></p>
 
 <p>One feature improvement for Luxon is to make Duration.toHuman() method print more human-readable strings. Currently, there are 2 issues with this toHuman method. Firstly, if a Duration is created with some units being 0 then those units are still printed using the toHuman method, which doesn't benefit humans. Secondly, if a Duration is created with an empty object then an empty string is returned with the toHuman method, which is not human-readable. As a solution, I think toHuman should be either renamed as it only returns the representation of the duration with unit names attached and not really human-friendly output or the above issues can be improved. To fix this issue, an additional parameter can be introduced to specify the smallest unit to print, which is seconds instead of milliseconds. This parameter “seconds” will also serve as a unit to print if the duration contains an empty unit. The changes of this method can be viewed at this system repo: https://github.com/wanyuguan/luxon </p>
+
+
 
 
 
