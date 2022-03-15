@@ -48,9 +48,7 @@ The Luxon package is composed of several components with different purposes, as 
 
 | Component Name      | Benchmarks Needed to Be Reached |
 |:--------------------|:--------------|
-| DateTime          |  •	Response Time: >1200 ms per 50 transactions
-•	Throughput: 100 transactions per second 
-•	Scalability: 35% increase within 1 minute   | 
+| DateTime          |  •	Response Time: >1200 ms per 50 transactions •	Throughput: 100 transactions per second •	Scalability: 35% increase within 1 minute   | 
 | Duration          | This object represents a period of time. Conceptually, it’s a map of units to their quantities.  | 
 | Interval          | This object represents a half-open interval of time, where each endpoint is a DateTime.       |
 | Info          | This class contains static methods for retrieving general time and date related data.           | 
